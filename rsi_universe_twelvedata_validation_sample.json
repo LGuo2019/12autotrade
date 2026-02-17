@@ -1,0 +1,51 @@
+{
+  "summary": {
+    "total": 5,
+    "effective_per_minute": 7,
+    "effective_per_day": 760,
+    "daily_remaining_after_run": 755,
+    "counts": {
+      "valid": 0,
+      "invalid_symbol": 0,
+      "plan_restricted": 0,
+      "auth_error": 0,
+      "rate_limited": 0,
+      "api_error": 0,
+      "http_error": 0,
+      "network_error": 5,
+      "budget_skipped": 0
+    }
+  },
+  "results": [
+    {
+      "epic": "CC.D.CL.USS.IP",
+      "symbol": "WTI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=WTI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75e7e0a415b0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.HG.USS.IP",
+      "symbol": "HG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=HG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75e7e0a413a0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.LCO.USS.IP",
+      "symbol": "BRENT",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BRENT&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75e7e0a41430>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.NG.USS.IP",
+      "symbol": "NG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75e7e0a40560>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CO.D.CFI.Month3.IP",
+      "symbol": "CFI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CFI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x75e7e0a40410>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    }
+  ]
+}

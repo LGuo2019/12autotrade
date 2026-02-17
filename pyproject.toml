@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rsi_scanner"
+version = "0.1.0"
+description = "TwelveData RSI scanner with budgeted API usage and Telegram alerts"
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML==6.0.2",
+  "requests==2.32.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.3",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"

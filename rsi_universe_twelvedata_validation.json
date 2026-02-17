@@ -1,0 +1,453 @@
+{
+  "summary": {
+    "total": 72,
+    "effective_per_minute": 7,
+    "effective_per_day": 760,
+    "daily_remaining_after_run": 688,
+    "counts": {
+      "valid": 0,
+      "invalid_symbol": 0,
+      "plan_restricted": 0,
+      "auth_error": 0,
+      "rate_limited": 0,
+      "api_error": 0,
+      "http_error": 0,
+      "network_error": 72,
+      "budget_skipped": 0
+    }
+  },
+  "results": [
+    {
+      "epic": "CC.D.CL.USS.IP",
+      "symbol": "WTI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=WTI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca81ede0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.HG.USS.IP",
+      "symbol": "HG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=HG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca840320>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.LCO.USS.IP",
+      "symbol": "BRENT",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BRENT&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842240>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CC.D.NG.USS.IP",
+      "symbol": "NG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8418b0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CO.D.CFI.Month3.IP",
+      "symbol": "CFI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CFI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841df0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.COPPER.TODAY.IP",
+      "symbol": "COPPER",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=COPPER&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842090>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.EURUSD.TODAY.IP",
+      "symbol": "EUR/USD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=EUR%2FUSD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842570>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.GBPUSD.TODAY.IP",
+      "symbol": "GBP/USD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=GBP%2FUSD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842b70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.NICKEL.TODAY.IP",
+      "symbol": "NICKEL",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NICKEL&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842ff0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.USCGC.TODAY.IP",
+      "symbol": "XAU/USD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=XAU%2FUSD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843440>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.USCSI.TODAY.IP",
+      "symbol": "XAG/USD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=XAG%2FUSD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca81fec0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "CS.D.USDJPY.TODAY.IP",
+      "symbol": "USD/JPY",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=USD%2FJPY&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842b70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.ASX.MONTH1.IP",
+      "symbol": "AXJO",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AXJO&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842780>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.DAX.DAILY.IP",
+      "symbol": "DAX",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DAX&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841f70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.DOW.DAILY.IP",
+      "symbol": "DJI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DJI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841790>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.FANG.DAILY.IP",
+      "symbol": "NYFANG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NYFANG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8401d0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.FTSE.DAILY.IP",
+      "symbol": "FTSE",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=FTSE&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843830>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.NASDAQ.CASH.IP",
+      "symbol": "NDAQ",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NDAQ&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843c80>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.NIKKEI.DAILY.IP",
+      "symbol": "N225",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=N225&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860080>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.SAF.DAILY.IP",
+      "symbol": "JTOPI",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=JTOPI&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860560>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.STXE.CASH.IP",
+      "symbol": "STOXX50E",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=STOXX50E&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8609e0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "IX.D.XINHUA.DFB.IP",
+      "symbol": "XIN9",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=XIN9&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860e60>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.ABBVWUS.DAILY.IP",
+      "symbol": "ABBV",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ABBV&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843cb0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.AMD.DAILY.IP",
+      "symbol": "AMD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AMD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca840710>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.ANETUS.DAILY.IP",
+      "symbol": "ANET",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ANET&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca840770>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.BA.DAILY.IP",
+      "symbol": "BA",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BA&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8424e0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.BABA.DAILY.IP",
+      "symbol": "BABA",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BABA&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842ae0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SA.D.BAC.DAILY.IP",
+      "symbol": "BAC",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BAC&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842c60>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SB.D.CAT.DAILY.IP",
+      "symbol": "CAT",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CAT&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca81fb90>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SB.D.CRM.DAILY.IP",
+      "symbol": "CRM",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CRM&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8606e0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SB.D.CVX.DAILY.IP",
+      "symbol": "CVX",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CVX&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8600e0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SB.D.DE.DAILY.IP",
+      "symbol": "DE",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DE&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861280>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SB.D.DIS.DAILY.IP",
+      "symbol": "DIS",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DIS&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8616d0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SC.D.GE.DAILY.IP",
+      "symbol": "GE",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=GE&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861b50>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SC.D.GMUS.DAILY.IP",
+      "symbol": "GM",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=GM&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8430b0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SC.D.HD.DAILY.IP",
+      "symbol": "HD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=HD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841af0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SD.D.IBM.DAILY.IP",
+      "symbol": "IBM",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=IBM&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841a00>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SD.D.JNJ.DAILY.IP",
+      "symbol": "JNJ",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=JNJ&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8421b0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SD.D.JPM.DAILY.IP",
+      "symbol": "JPM",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=JPM&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843a70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SD.D.LLY.DAILY.IP",
+      "symbol": "LLY",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=LLY&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843740>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SD.D.LOW.DAILY.IP",
+      "symbol": "LOW",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=LOW&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8617f0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SE.D.MCD.DAILY.IP",
+      "symbol": "MCD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=MCD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8613d0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SE.D.NETUS.DAILY.IP",
+      "symbol": "NET",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NET&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860080>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SE.D.NIOUS.DAILY.IP",
+      "symbol": "NIO",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NIO&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8603e0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SE.D.NOWUS.DAILY.IP",
+      "symbol": "NOW",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=NOW&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862030>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SE.D.PEP.DAILY.IP",
+      "symbol": "PEP",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=PEP&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862480>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SG.D.SHOPUS.DAILY.IP",
+      "symbol": "SHOP",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=SHOP&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8628d0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SG.D.SNOWUS.DAILY.IP",
+      "symbol": "SNOW",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=SNOW&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843680>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SG.D.SPOTUS.DAILY.IP",
+      "symbol": "SPOT",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=SPOT&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843650>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SG.D.SQUS.DAILY.IP",
+      "symbol": "SQ",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=SQ&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842300>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "SH.D.UBERUS.DAILY.IP",
+      "symbol": "UBER",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=UBER&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842b70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.AALUS.DAILY.IP",
+      "symbol": "AAL",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AAL&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862420>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.AAPL.DAILY.IP",
+      "symbol": "AAPL",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AAPL&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862090>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.ABNBUS.DAILY.IP",
+      "symbol": "ABNB",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ABNB&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860350>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.ADBE.DAILY.IP",
+      "symbol": "ADBE",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ADBE&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861010>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.ADSK.DAILY.IP",
+      "symbol": "ADSK",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ADSK&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8617f0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.AMAT.DAILY.IP",
+      "symbol": "AMAT",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AMAT&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862720>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.AMZN.DAILY.IP",
+      "symbol": "AMZN",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AMZN&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862d80>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.AVGO.DAILY.IP",
+      "symbol": "AVGO",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=AVGO&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca8631d0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.COINUS.DAILY.IP",
+      "symbol": "COIN",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=COIN&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842450>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.COST.DAILY.IP",
+      "symbol": "COST",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=COST&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca841a00>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.CRWDUS.DAILY.IP",
+      "symbol": "CRWD",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CRWD&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca842240>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UA.D.CSCO.DAILY.IP",
+      "symbol": "CSCO",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=CSCO&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca843b60>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UB.D.DDOGUS.DAILY.IP",
+      "symbol": "DDOG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DDOG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862e70>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UB.D.DOCUUS.DAILY.IP",
+      "symbol": "DOCU",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=DOCU&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862ed0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UB.D.FB.DAILY.IP",
+      "symbol": "META",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=META&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862de0>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UB.D.GOOGL.DAILY.IP",
+      "symbol": "GOOGL",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=GOOGL&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca862990>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UB.D.INTC.DAILY.IP",
+      "symbol": "INTC",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=INTC&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861790>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UC.D.MARUS.DAILY.IP",
+      "symbol": "MAR",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=MAR&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861670>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UC.D.PCLN.DAILY.IP",
+      "symbol": "BKNG",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=BKNG&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca860980>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UC.D.ROKUUS.DAILY.IP",
+      "symbol": "ROKU",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ROKU&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca861e20>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    },
+    {
+      "epic": "UD.D.ZSUS.DAILY.IP",
+      "symbol": "ZS",
+      "status": "network_error",
+      "message": "HTTPSConnectionPool(host='api.twelvedata.com', port=443): Max retries exceeded with url: /rsi?symbol=ZS&interval=2h&time_period=14&outputsize=2&apikey=0f9643d630b0414894dff57a2bcb212f (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7886ca863500>: Failed to resolve 'api.twelvedata.com' ([Errno -2] Name or service not known)\"))"
+    }
+  ]
+}

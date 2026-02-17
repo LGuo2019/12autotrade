@@ -1,0 +1,200 @@
+{
+  "targets": 30,
+  "matched": 13,
+  "low_confidence": 1,
+  "unmatched": 16,
+  "results": {
+    "AMGN": {
+      "ig_name": "Amgen Inc",
+      "status": "matched",
+      "best_epic": "UA.D.AMGN.DAILY.IP",
+      "best_name": "Amgen Inc (24 Hours)",
+      "score": 0.9621,
+      "candidate_count": 8
+    },
+    "ARM": {
+      "ig_name": "Arm Holdings plc ADR",
+      "status": "matched",
+      "best_epic": "UA.D.ARMUS.DAILY.IP",
+      "best_name": "ARM Holdings PLC ADR (24 Hours)",
+      "score": 0.7284,
+      "candidate_count": 100
+    },
+    "C": {
+      "ig_name": "Citigroup Inc",
+      "status": "matched",
+      "best_epic": "SB.D.C.DAILY.IP",
+      "best_name": "Citigroup Inc (24 Hours)",
+      "score": 0.9703,
+      "candidate_count": 8
+    },
+    "DKNG": {
+      "ig_name": "DraftKings Inc",
+      "status": "matched",
+      "best_epic": "UB.D.DKNGUS.DAILY.IP",
+      "best_name": "DraftKings Inc",
+      "score": 0.75,
+      "candidate_count": 8
+    },
+    "F": {
+      "ig_name": "Ford Motor Co",
+      "status": "matched",
+      "best_epic": "SC.D.F.DAILY.IP",
+      "best_name": "Ford Motor Co (24 Hours)",
+      "score": 0.9703,
+      "candidate_count": 4
+    },
+    "INTU": {
+      "ig_name": "Intuit Inc",
+      "status": "matched",
+      "best_epic": "UB.D.INTU.DAILY.IP",
+      "best_name": "Intuit Inc (24 Hours)",
+      "score": 0.9645,
+      "candidate_count": 41
+    },
+    "KO": {
+      "ig_name": "Coca-Cola Co",
+      "status": "matched",
+      "best_epic": "SD.D.KO.DAILY.IP",
+      "best_name": "Coca-Cola Co (24 Hours)",
+      "score": 0.9686,
+      "candidate_count": 86
+    },
+    "MARA": {
+      "ig_name": "MARA Holdings Inc",
+      "status": "matched",
+      "best_epic": "UC.D.MARAUS.DAILY.IP",
+      "best_name": "MARA Holdings Inc (24 Hours)",
+      "score": 0.7256,
+      "candidate_count": 100
+    },
+    "MRVL": {
+      "ig_name": "Marvell Technology Inc",
+      "status": "matched",
+      "best_epic": "UC.D.MRVL.DAILY.IP",
+      "best_name": "Marvell Technology Group Ltd (24 Hours)",
+      "score": 0.9623,
+      "candidate_count": 4
+    },
+    "MSFT": {
+      "ig_name": "Microsoft Corp",
+      "status": "matched",
+      "best_epic": "UC.D.MSFT.DAILY.IP",
+      "best_name": "Microsoft Corp (24 Hours)",
+      "score": 0.9718,
+      "candidate_count": 70
+    },
+    "MU": {
+      "ig_name": "Micron Technology Inc",
+      "status": "matched",
+      "best_epic": "UC.D.MU.DAILY.IP",
+      "best_name": "Micron Technology Inc (24 Hours)",
+      "score": 0.9792,
+      "candidate_count": 54
+    },
+    "NFLX": {
+      "ig_name": "Netflix Inc",
+      "status": "matched",
+      "best_epic": "UC.D.NFLX.DAILY.IP",
+      "best_name": "Netflix Inc (24 Hours)",
+      "score": 0.9667,
+      "candidate_count": 100
+    },
+    "NVDA": {
+      "ig_name": "NVIDIA Corp",
+      "status": "matched",
+      "best_epic": "UC.D.NVDA.DAILY.IP",
+      "best_name": "NVIDIA Corp (24 Hours)",
+      "score": 0.9667,
+      "candidate_count": 100
+    },
+    "ORCL": {
+      "ig_name": "Oracle Corp",
+      "status": "low_confidence",
+      "best_epic": "SE.D.ORCLUS.DAILY.IP",
+      "best_name": "Oracle Corp (24 Hours)",
+      "score": 0.7167,
+      "candidate_count": 16
+    },
+    "PANW": {
+      "ig_name": "Palo Alto Networks Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "PFE": {
+      "ig_name": "Pfizer Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "PLTR": {
+      "ig_name": "Palantir Technologies Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "PLUG": {
+      "ig_name": "Plug Power Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "PYPL": {
+      "ig_name": "PayPal Holdings Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "QCOM": {
+      "ig_name": "Qualcomm Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "RIG": {
+      "ig_name": "Transocean Ltd",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "RIVN": {
+      "ig_name": "Rivian Automotive Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "SMCI": {
+      "ig_name": "Super Micro Computer Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "T": {
+      "ig_name": "AT&T Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "TSLA": {
+      "ig_name": "Tesla Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "UNH": {
+      "ig_name": "UnitedHealth Group Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "VZ": {
+      "ig_name": "Verizon Communications Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "WFC": {
+      "ig_name": "Wells Fargo & Co",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "WMT": {
+      "ig_name": "Walmart Inc",
+      "status": "unmatched",
+      "candidate_count": 0
+    },
+    "XOM": {
+      "ig_name": "Exxon Mobil Corp",
+      "status": "unmatched",
+      "candidate_count": 0
+    }
+  }
+}

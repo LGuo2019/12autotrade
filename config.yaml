@@ -1,0 +1,46 @@
+safe_mode: false
+sim:
+  enabled: false
+dry_run: false
+
+limits:
+  per_min: 8
+  per_day: 800
+  reserve_pct: 0.05
+  
+twelvedata:
+  api_key_env: 0f9643d630b0414894dff57a2bcb212f
+  map_types:
+    - indices
+    - commodities
+    - ETF
+  catalog_cache_file: data/twelvedata_indices_commodities.json
+
+telegram:
+  token_env: 8464732196:AAGi7xJG_Jn0Mg6VU7Q0yD_7RHfZ5zPbkkc
+  chat_id_env: 8196396667
+
+ig:
+  api_key_env: f9cc46c5e848bd70e2dd5d66abfb35da998cbe32
+  identifier_env: guolimm
+  password_env: Wp21910!
+  base_url: https://api.ig.com/gateway/deal
+  account_id: GY9V9
+
+scanner:
+  timeframe: 2h
+  active_band: 6
+  max_calls_per_run: 80
+  sticky_runs: 2
+  alert_on_first_seen_extreme: true
+  us_stocks_restrict_hours: true
+  us_stocks_tz: America/New_York
+  us_stocks_start: "07:30"
+  us_stocks_end: "18:00"
+  us_stock_symbols_file: data/us_stock_symbols.txt
+  ig_auto_add_watchlist_on_alert: true
+  ig_watchlist_name: "My Watchlist"
+  ig_symbol_epic_map_file: rsi_universe_epic_to_twelvedata_symbol.json
+
+symbols_file: symbols/markets.txt
+mapping_file: 12_IG_mapping_universe.json

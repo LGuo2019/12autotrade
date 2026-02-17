@@ -1,0 +1,188 @@
+{
+  "details": {
+    "CC.D.CL.USS.IP": {
+      "ig_name": "Oil - US Crude",
+      "symbol": "WTI",
+      "via": "existing_map"
+    },
+    "CC.D.HG.USS.IP": {
+      "ig_name": "High Grade Copper",
+      "symbol": "HG",
+      "via": "existing_map"
+    },
+    "CC.D.LCO.USS.IP": {
+      "ig_name": "Oil - Brent Crude",
+      "symbol": "BRENT",
+      "via": "existing_map"
+    },
+    "CC.D.NG.USS.IP": {
+      "ig_name": "Natural Gas",
+      "symbol": "NG",
+      "via": "existing_map"
+    },
+    "CS.D.COPPER.TODAY.IP": {
+      "ig_name": "Copper",
+      "symbol": "COPPER",
+      "via": "existing_map"
+    },
+    "CS.D.EURUSD.TODAY.IP": {
+      "ig_name": "EUR/USD",
+      "symbol": "EUR/USD",
+      "via": "existing_map"
+    },
+    "CS.D.GBPUSD.TODAY.IP": {
+      "ig_name": "GBP/USD",
+      "symbol": "GBP/USD",
+      "via": "existing_map"
+    },
+    "CS.D.NICKEL.TODAY.IP": {
+      "ig_name": "Nickel",
+      "symbol": "NICKEL",
+      "via": "existing_map"
+    },
+    "CS.D.USCGC.TODAY.IP": {
+      "ig_name": "Spot Gold",
+      "symbol": "XAU/USD",
+      "via": "existing_map"
+    },
+    "CS.D.USCSI.TODAY.IP": {
+      "ig_name": "Spot Silver",
+      "symbol": "XAG/USD",
+      "via": "existing_map"
+    },
+    "CS.D.USDJPY.TODAY.IP": {
+      "ig_name": "USD/JPY",
+      "symbol": "USD/JPY",
+      "via": "existing_map"
+    },
+    "IX.D.ASX.MONTH1.IP": {
+      "ig_name": "Australia 200",
+      "symbol": "AXJO",
+      "via": "existing_map"
+    },
+    "IX.D.DAX.DAILY.IP": {
+      "ig_name": "Germany 40",
+      "symbol": "DAX",
+      "via": "existing_map"
+    },
+    "IX.D.DOW.DAILY.IP": {
+      "ig_name": "Wall Street",
+      "symbol": "DJI",
+      "via": "existing_map"
+    },
+    "IX.D.FANG.DAILY.IP": {
+      "ig_name": "US Fang",
+      "symbol": "NYFANG",
+      "via": "existing_map"
+    },
+    "IX.D.FTSE.DAILY.IP": {
+      "ig_name": "FTSE 100",
+      "symbol": "FTSE",
+      "via": "existing_map"
+    },
+    "IX.D.NASDAQ.CASH.IP": {
+      "ig_name": "US Tech 100",
+      "symbol": "NDAQ",
+      "via": "existing_map"
+    },
+    "IX.D.NIKKEI.DAILY.IP": {
+      "ig_name": "Japan 225",
+      "symbol": "N225",
+      "via": "existing_map"
+    },
+    "IX.D.SAF.DAILY.IP": {
+      "ig_name": "South Africa 40",
+      "symbol": "JTOPI",
+      "via": "existing_map"
+    },
+    "IX.D.STXE.CASH.IP": {
+      "ig_name": "EU Stocks 50",
+      "symbol": "STOXX50E",
+      "via": "existing_map"
+    },
+    "IX.D.XINHUA.DFB.IP": {
+      "ig_name": "China A50",
+      "symbol": "XIN9",
+      "via": "existing_map"
+    }
+  },
+  "epic_to_twelvedata_symbol": {
+    "CC.D.CL.USS.IP": "WTI",
+    "CC.D.HG.USS.IP": "HG",
+    "CC.D.LCO.USS.IP": "BRENT",
+    "CC.D.NG.USS.IP": "NG",
+    "CS.D.COPPER.TODAY.IP": "COPPER",
+    "CS.D.EURUSD.TODAY.IP": "EUR/USD",
+    "CS.D.GBPUSD.TODAY.IP": "GBP/USD",
+    "CS.D.NICKEL.TODAY.IP": "NICKEL",
+    "CS.D.USCGC.TODAY.IP": "XAU/USD",
+    "CS.D.USCSI.TODAY.IP": "XAG/USD",
+    "CS.D.USDJPY.TODAY.IP": "USD/JPY",
+    "IX.D.ASX.MONTH1.IP": "AXJO",
+    "IX.D.DAX.DAILY.IP": "DAX",
+    "IX.D.DOW.DAILY.IP": "DJI",
+    "IX.D.FANG.DAILY.IP": "NYFANG",
+    "IX.D.FTSE.DAILY.IP": "FTSE",
+    "IX.D.NASDAQ.CASH.IP": "NDAQ",
+    "IX.D.NIKKEI.DAILY.IP": "N225",
+    "IX.D.SAF.DAILY.IP": "JTOPI",
+    "IX.D.STXE.CASH.IP": "STOXX50E",
+    "IX.D.XINHUA.DFB.IP": "XIN9"
+  },
+  "mapped_count": 21,
+  "still_unmapped": {
+    "CO.D.CFI.Month3.IP": "Carbon Emissions",
+    "SA.D.ABBVWUS.DAILY.IP": "AbbVie Inc",
+    "SA.D.AMD.DAILY.IP": "Advanced Micro Devices Inc",
+    "SA.D.ANETUS.DAILY.IP": "Arista Networks Inc",
+    "SA.D.BA.DAILY.IP": "Boeing Co",
+    "SA.D.BABA.DAILY.IP": "Alibaba Group Holding Ltd",
+    "SA.D.BAC.DAILY.IP": "Bank of America Corp",
+    "SB.D.CAT.DAILY.IP": "Caterpillar Inc",
+    "SB.D.CRM.DAILY.IP": "Salesforce Inc",
+    "SB.D.CVX.DAILY.IP": "Chevron Corp",
+    "SB.D.DE.DAILY.IP": "Deere & Co",
+    "SB.D.DIS.DAILY.IP": "Walt Disney Co",
+    "SC.D.GE.DAILY.IP": "GE Aerospace",
+    "SC.D.GMUS.DAILY.IP": "General Motors Co",
+    "SC.D.HD.DAILY.IP": "Home Depot Inc",
+    "SD.D.IBM.DAILY.IP": "IBM Corp",
+    "SD.D.JNJ.DAILY.IP": "Johnson & Johnson",
+    "SD.D.JPM.DAILY.IP": "JPMorgan Chase & Co",
+    "SD.D.LLY.DAILY.IP": "Eli Lilly & Co",
+    "SD.D.LOW.DAILY.IP": "Lowe's Cos Inc",
+    "SE.D.MCD.DAILY.IP": "McDonald's Corp",
+    "SE.D.NETUS.DAILY.IP": "Cloudflare Inc",
+    "SE.D.NIOUS.DAILY.IP": "NIO Inc ADR",
+    "SE.D.NOWUS.DAILY.IP": "ServiceNow Inc",
+    "SE.D.PEP.DAILY.IP": "PepsiCo Inc",
+    "SG.D.SHOPUS.DAILY.IP": "Shopify Inc",
+    "SG.D.SNOWUS.DAILY.IP": "Snowflake Inc",
+    "SG.D.SPOTUS.DAILY.IP": "Spotify Technology SA",
+    "SG.D.SQUS.DAILY.IP": "Block Inc",
+    "SH.D.UBERUS.DAILY.IP": "Uber Technologies Inc",
+    "UA.D.AALUS.DAILY.IP": "American Airlines Group Inc",
+    "UA.D.AAPL.DAILY.IP": "Apple Inc",
+    "UA.D.ABNBUS.DAILY.IP": "Airbnb Inc",
+    "UA.D.ADBE.DAILY.IP": "Adobe Inc",
+    "UA.D.ADSK.DAILY.IP": "Autodesk Inc",
+    "UA.D.AMAT.DAILY.IP": "Applied Materials Inc",
+    "UA.D.AMZN.DAILY.IP": "Amazon.com Inc",
+    "UA.D.AVGO.DAILY.IP": "Broadcom Inc",
+    "UA.D.COINUS.DAILY.IP": "Coinbase Global Inc",
+    "UA.D.COST.DAILY.IP": "Costco Wholesale Corp",
+    "UA.D.CRWDUS.DAILY.IP": "CrowdStrike Holdings Inc",
+    "UA.D.CSCO.DAILY.IP": "Cisco Systems Inc",
+    "UB.D.DDOGUS.DAILY.IP": "Datadog Inc",
+    "UB.D.DOCUUS.DAILY.IP": "DocuSign Inc",
+    "UB.D.FB.DAILY.IP": "Meta Platforms Inc",
+    "UB.D.GOOGL.DAILY.IP": "Alphabet Inc - A",
+    "UB.D.INTC.DAILY.IP": "Intel Corp",
+    "UC.D.MARUS.DAILY.IP": "Marriott International Inc",
+    "UC.D.PCLN.DAILY.IP": "Booking Holdings Inc",
+    "UC.D.ROKUUS.DAILY.IP": "Roku Inc",
+    "UD.D.ZSUS.DAILY.IP": "Zscaler Inc"
+  },
+  "total_input": 72,
+  "unmapped_count": 51
+}

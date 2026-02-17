@@ -1,0 +1,22 @@
+001. My Watchlist | GBP/USD | CS.D.GBPUSD.TODAY.IP
+002. My Watchlist | US Tech 100 | IX.D.NASDAQ.CASH.IP
+003. My Watchlist | Wall Street | IX.D.DOW.DAILY.IP
+004. My Watchlist | China A50 | IX.D.XINHUA.DFB.IP
+005. My Watchlist | Oil - US Crude | CC.D.CL.USS.IP
+006. My Watchlist | Spot Gold | CS.D.USCGC.TODAY.IP
+007. My Watchlist | Spot Silver | CS.D.USCSI.TODAY.IP
+008. My Watchlist | South Africa 40 | IX.D.SAF.DAILY.IP
+009. My Watchlist | Japan 225 | IX.D.NIKKEI.DAILY.IP
+010. My Watchlist | Germany 40 | IX.D.DAX.DAILY.IP
+011. My Watchlist | Australia 200 | IX.D.ASX.MONTH1.IP
+012. My Watchlist | EU Stocks 50 | IX.D.STXE.CASH.IP
+013. My Watchlist | US Fang | IX.D.FANG.DAILY.IP
+014. My Watchlist | FTSE 100 | IX.D.FTSE.DAILY.IP
+015. My Watchlist | Natural Gas | CC.D.NG.USS.IP
+016. My Watchlist | USD/JPY | CS.D.USDJPY.TODAY.IP
+017. My Watchlist | EUR/USD | CS.D.EURUSD.TODAY.IP
+018. My Watchlist | Oil - Brent Crude | CC.D.LCO.USS.IP
+019. My Watchlist | Carbon Emissions | CO.D.CFI.Month3.IP
+020. My Watchlist | High Grade Copper | CC.D.HG.USS.IP
+021. My Watchlist | Copper | CS.D.COPPER.TODAY.IP
+022. My Watchlist | Nickel | CS.D.NICKEL.TODAY.IP

@@ -1,0 +1,520 @@
+{
+  "details": {
+    "CC.D.CL.USS.IP": {
+      "ig_name": "Oil - US Crude",
+      "symbol": "WTI",
+      "via": "seed_map"
+    },
+    "CC.D.HG.USS.IP": {
+      "ig_name": "High Grade Copper",
+      "symbol": "HG",
+      "via": "seed_map"
+    },
+    "CC.D.LCO.USS.IP": {
+      "ig_name": "Oil - Brent Crude",
+      "symbol": "BRENT",
+      "via": "seed_map"
+    },
+    "CC.D.NG.USS.IP": {
+      "ig_name": "Natural Gas",
+      "symbol": "NG",
+      "via": "seed_map"
+    },
+    "CO.D.CFI.Month3.IP": {
+      "ig_name": "Carbon Emissions",
+      "symbol": "CFI",
+      "via": "name_override"
+    },
+    "CS.D.COPPER.TODAY.IP": {
+      "ig_name": "Copper",
+      "symbol": "COPPER",
+      "via": "seed_map"
+    },
+    "CS.D.EURUSD.TODAY.IP": {
+      "ig_name": "EUR/USD",
+      "symbol": "EUR/USD",
+      "via": "seed_map"
+    },
+    "CS.D.GBPUSD.TODAY.IP": {
+      "ig_name": "GBP/USD",
+      "symbol": "GBP/USD",
+      "via": "seed_map"
+    },
+    "CS.D.NICKEL.TODAY.IP": {
+      "ig_name": "Nickel",
+      "symbol": "NICKEL",
+      "via": "seed_map"
+    },
+    "CS.D.USCGC.TODAY.IP": {
+      "ig_name": "Spot Gold",
+      "symbol": "XAU/USD",
+      "via": "seed_map"
+    },
+    "CS.D.USCSI.TODAY.IP": {
+      "ig_name": "Spot Silver",
+      "symbol": "XAG/USD",
+      "via": "seed_map"
+    },
+    "CS.D.USDJPY.TODAY.IP": {
+      "ig_name": "USD/JPY",
+      "symbol": "USD/JPY",
+      "via": "seed_map"
+    },
+    "IX.D.ASX.MONTH1.IP": {
+      "ig_name": "Australia 200",
+      "symbol": "AXJO",
+      "via": "seed_map"
+    },
+    "IX.D.DAX.DAILY.IP": {
+      "ig_name": "Germany 40",
+      "symbol": "DAX",
+      "via": "seed_map"
+    },
+    "IX.D.DOW.DAILY.IP": {
+      "ig_name": "Wall Street",
+      "symbol": "DJI",
+      "via": "seed_map"
+    },
+    "IX.D.FANG.DAILY.IP": {
+      "ig_name": "US Fang",
+      "symbol": "NYFANG",
+      "via": "seed_map"
+    },
+    "IX.D.FTSE.DAILY.IP": {
+      "ig_name": "FTSE 100",
+      "symbol": "FTSE",
+      "via": "seed_map"
+    },
+    "IX.D.NASDAQ.CASH.IP": {
+      "ig_name": "US Tech 100",
+      "symbol": "NDAQ",
+      "via": "seed_map"
+    },
+    "IX.D.NIKKEI.DAILY.IP": {
+      "ig_name": "Japan 225",
+      "symbol": "N225",
+      "via": "seed_map"
+    },
+    "IX.D.SAF.DAILY.IP": {
+      "ig_name": "South Africa 40",
+      "symbol": "JTOPI",
+      "via": "seed_map"
+    },
+    "IX.D.STXE.CASH.IP": {
+      "ig_name": "EU Stocks 50",
+      "symbol": "STOXX50E",
+      "via": "seed_map"
+    },
+    "IX.D.XINHUA.DFB.IP": {
+      "ig_name": "China A50",
+      "symbol": "XIN9",
+      "via": "seed_map"
+    },
+    "SA.D.ABBVWUS.DAILY.IP": {
+      "ig_name": "AbbVie Inc",
+      "symbol": "ABBV",
+      "via": "epic_derived"
+    },
+    "SA.D.AMD.DAILY.IP": {
+      "ig_name": "Advanced Micro Devices Inc",
+      "symbol": "AMD",
+      "via": "epic_derived"
+    },
+    "SA.D.ANETUS.DAILY.IP": {
+      "ig_name": "Arista Networks Inc",
+      "symbol": "ANET",
+      "via": "epic_derived"
+    },
+    "SA.D.BA.DAILY.IP": {
+      "ig_name": "Boeing Co",
+      "symbol": "BA",
+      "via": "epic_derived"
+    },
+    "SA.D.BABA.DAILY.IP": {
+      "ig_name": "Alibaba Group Holding Ltd",
+      "symbol": "BABA",
+      "via": "epic_derived"
+    },
+    "SA.D.BAC.DAILY.IP": {
+      "ig_name": "Bank of America Corp",
+      "symbol": "BAC",
+      "via": "epic_derived"
+    },
+    "SB.D.CAT.DAILY.IP": {
+      "ig_name": "Caterpillar Inc",
+      "symbol": "CAT",
+      "via": "epic_derived"
+    },
+    "SB.D.CRM.DAILY.IP": {
+      "ig_name": "Salesforce Inc",
+      "symbol": "CRM",
+      "via": "epic_derived"
+    },
+    "SB.D.CVX.DAILY.IP": {
+      "ig_name": "Chevron Corp",
+      "symbol": "CVX",
+      "via": "epic_derived"
+    },
+    "SB.D.DE.DAILY.IP": {
+      "ig_name": "Deere & Co",
+      "symbol": "DE",
+      "via": "epic_derived"
+    },
+    "SB.D.DIS.DAILY.IP": {
+      "ig_name": "Walt Disney Co",
+      "symbol": "DIS",
+      "via": "epic_derived"
+    },
+    "SC.D.GE.DAILY.IP": {
+      "ig_name": "GE Aerospace",
+      "symbol": "GE",
+      "via": "epic_derived"
+    },
+    "SC.D.GMUS.DAILY.IP": {
+      "ig_name": "General Motors Co",
+      "symbol": "GM",
+      "via": "epic_derived"
+    },
+    "SC.D.HD.DAILY.IP": {
+      "ig_name": "Home Depot Inc",
+      "symbol": "HD",
+      "via": "epic_derived"
+    },
+    "SD.D.IBM.DAILY.IP": {
+      "ig_name": "IBM Corp",
+      "symbol": "IBM",
+      "via": "epic_derived"
+    },
+    "SD.D.JNJ.DAILY.IP": {
+      "ig_name": "Johnson & Johnson",
+      "symbol": "JNJ",
+      "via": "epic_derived"
+    },
+    "SD.D.JPM.DAILY.IP": {
+      "ig_name": "JPMorgan Chase & Co",
+      "symbol": "JPM",
+      "via": "epic_derived"
+    },
+    "SD.D.LLY.DAILY.IP": {
+      "ig_name": "Eli Lilly & Co",
+      "symbol": "LLY",
+      "via": "epic_derived"
+    },
+    "SD.D.LOW.DAILY.IP": {
+      "ig_name": "Lowe's Cos Inc",
+      "symbol": "LOW",
+      "via": "epic_derived"
+    },
+    "SE.D.MCD.DAILY.IP": {
+      "ig_name": "McDonald's Corp",
+      "symbol": "MCD",
+      "via": "epic_derived"
+    },
+    "SE.D.NETUS.DAILY.IP": {
+      "ig_name": "Cloudflare Inc",
+      "symbol": "NET",
+      "via": "epic_derived"
+    },
+    "SE.D.NIOUS.DAILY.IP": {
+      "ig_name": "NIO Inc ADR",
+      "symbol": "NIO",
+      "via": "epic_derived"
+    },
+    "SE.D.NOWUS.DAILY.IP": {
+      "ig_name": "ServiceNow Inc",
+      "symbol": "NOW",
+      "via": "epic_derived"
+    },
+    "SE.D.PEP.DAILY.IP": {
+      "ig_name": "PepsiCo Inc",
+      "symbol": "PEP",
+      "via": "epic_derived"
+    },
+    "SG.D.SHOPUS.DAILY.IP": {
+      "ig_name": "Shopify Inc",
+      "symbol": "SHOP",
+      "via": "epic_derived"
+    },
+    "SG.D.SNOWUS.DAILY.IP": {
+      "ig_name": "Snowflake Inc",
+      "symbol": "SNOW",
+      "via": "epic_derived"
+    },
+    "SG.D.SPOTUS.DAILY.IP": {
+      "ig_name": "Spotify Technology SA",
+      "symbol": "SPOT",
+      "via": "epic_derived"
+    },
+    "SG.D.SQUS.DAILY.IP": {
+      "ig_name": "Block Inc",
+      "symbol": "SQ",
+      "via": "epic_derived"
+    },
+    "SH.D.UBERUS.DAILY.IP": {
+      "ig_name": "Uber Technologies Inc",
+      "symbol": "UBER",
+      "via": "epic_derived"
+    },
+    "UA.D.AALUS.DAILY.IP": {
+      "ig_name": "American Airlines Group Inc",
+      "symbol": "AAL",
+      "via": "epic_derived"
+    },
+    "UA.D.AAPL.DAILY.IP": {
+      "ig_name": "Apple Inc",
+      "symbol": "AAPL",
+      "via": "epic_derived"
+    },
+    "UA.D.ABNBUS.DAILY.IP": {
+      "ig_name": "Airbnb Inc",
+      "symbol": "ABNB",
+      "via": "epic_derived"
+    },
+    "UA.D.ADBE.DAILY.IP": {
+      "ig_name": "Adobe Inc",
+      "symbol": "ADBE",
+      "via": "epic_derived"
+    },
+    "UA.D.ADSK.DAILY.IP": {
+      "ig_name": "Autodesk Inc",
+      "symbol": "ADSK",
+      "via": "epic_derived"
+    },
+    "UA.D.AMAT.DAILY.IP": {
+      "ig_name": "Applied Materials Inc",
+      "symbol": "AMAT",
+      "via": "epic_derived"
+    },
+    "UA.D.AMZN.DAILY.IP": {
+      "ig_name": "Amazon.com Inc",
+      "symbol": "AMZN",
+      "via": "epic_derived"
+    },
+    "UA.D.AVGO.DAILY.IP": {
+      "ig_name": "Broadcom Inc",
+      "symbol": "AVGO",
+      "via": "epic_derived"
+    },
+    "UA.D.COINUS.DAILY.IP": {
+      "ig_name": "Coinbase Global Inc",
+      "symbol": "COIN",
+      "via": "epic_derived"
+    },
+    "UA.D.COST.DAILY.IP": {
+      "ig_name": "Costco Wholesale Corp",
+      "symbol": "COST",
+      "via": "epic_derived"
+    },
+    "UA.D.CRWDUS.DAILY.IP": {
+      "ig_name": "CrowdStrike Holdings Inc",
+      "symbol": "CRWD",
+      "via": "epic_derived"
+    },
+    "UA.D.CSCO.DAILY.IP": {
+      "ig_name": "Cisco Systems Inc",
+      "symbol": "CSCO",
+      "via": "epic_derived"
+    },
+    "UB.D.DDOGUS.DAILY.IP": {
+      "ig_name": "Datadog Inc",
+      "symbol": "DDOG",
+      "via": "epic_derived"
+    },
+    "UB.D.DOCUUS.DAILY.IP": {
+      "ig_name": "DocuSign Inc",
+      "symbol": "DOCU",
+      "via": "epic_derived"
+    },
+    "UB.D.FB.DAILY.IP": {
+      "ig_name": "Meta Platforms Inc",
+      "symbol": "META",
+      "via": "name_override"
+    },
+    "UB.D.GOOGL.DAILY.IP": {
+      "ig_name": "Alphabet Inc - A",
+      "symbol": "GOOGL",
+      "via": "epic_derived"
+    },
+    "UB.D.INTC.DAILY.IP": {
+      "ig_name": "Intel Corp",
+      "symbol": "INTC",
+      "via": "epic_derived"
+    },
+    "UC.D.MARUS.DAILY.IP": {
+      "ig_name": "Marriott International Inc",
+      "symbol": "MAR",
+      "via": "epic_derived"
+    },
+    "UC.D.PCLN.DAILY.IP": {
+      "ig_name": "Booking Holdings Inc",
+      "symbol": "BKNG",
+      "via": "name_override"
+    },
+    "UC.D.ROKUUS.DAILY.IP": {
+      "ig_name": "Roku Inc",
+      "symbol": "ROKU",
+      "via": "epic_derived"
+    },
+    "UD.D.ZSUS.DAILY.IP": {
+      "ig_name": "Zscaler Inc",
+      "symbol": "ZS",
+      "via": "epic_derived"
+    },
+    "UA.D.AMGN.DAILY.IP": {
+      "ig_name": "Amgen Inc",
+      "symbol": "AMGN",
+      "via": "ig_markets_search"
+    },
+    "UA.D.ARMUS.DAILY.IP": {
+      "ig_name": "Arm Holdings plc ADR",
+      "symbol": "ARM",
+      "via": "ig_markets_search"
+    },
+    "SB.D.C.DAILY.IP": {
+      "ig_name": "Citigroup Inc",
+      "symbol": "C",
+      "via": "ig_markets_search"
+    },
+    "UB.D.DKNGUS.DAILY.IP": {
+      "ig_name": "DraftKings Inc",
+      "symbol": "DKNG",
+      "via": "ig_markets_search"
+    },
+    "SC.D.F.DAILY.IP": {
+      "ig_name": "Ford Motor Co",
+      "symbol": "F",
+      "via": "ig_markets_search"
+    },
+    "UB.D.INTU.DAILY.IP": {
+      "ig_name": "Intuit Inc",
+      "symbol": "INTU",
+      "via": "ig_markets_search"
+    },
+    "SD.D.KO.DAILY.IP": {
+      "ig_name": "Coca-Cola Co",
+      "symbol": "KO",
+      "via": "ig_markets_search"
+    },
+    "UC.D.MARAUS.DAILY.IP": {
+      "ig_name": "MARA Holdings Inc",
+      "symbol": "MARA",
+      "via": "ig_markets_search"
+    },
+    "UC.D.MRVL.DAILY.IP": {
+      "ig_name": "Marvell Technology Inc",
+      "symbol": "MRVL",
+      "via": "ig_markets_search"
+    },
+    "UC.D.MSFT.DAILY.IP": {
+      "ig_name": "Microsoft Corp",
+      "symbol": "MSFT",
+      "via": "ig_markets_search"
+    },
+    "UC.D.MU.DAILY.IP": {
+      "ig_name": "Micron Technology Inc",
+      "symbol": "MU",
+      "via": "ig_markets_search"
+    },
+    "UC.D.NFLX.DAILY.IP": {
+      "ig_name": "Netflix Inc",
+      "symbol": "NFLX",
+      "via": "ig_markets_search"
+    },
+    "UC.D.NVDA.DAILY.IP": {
+      "ig_name": "NVIDIA Corp",
+      "symbol": "NVDA",
+      "via": "ig_markets_search"
+    }
+  },
+  "epic_to_twelvedata_symbol": {
+    "CC.D.CL.USS.IP": "WTI",
+    "CC.D.HG.USS.IP": "HG",
+    "CC.D.LCO.USS.IP": "BRENT",
+    "CC.D.NG.USS.IP": "NG",
+    "CO.D.CFI.Month3.IP": "CFI",
+    "CS.D.COPPER.TODAY.IP": "COPPER",
+    "CS.D.EURUSD.TODAY.IP": "EUR/USD",
+    "CS.D.GBPUSD.TODAY.IP": "GBP/USD",
+    "CS.D.NICKEL.TODAY.IP": "NICKEL",
+    "CS.D.USCGC.TODAY.IP": "XAU/USD",
+    "CS.D.USCSI.TODAY.IP": "XAG/USD",
+    "CS.D.USDJPY.TODAY.IP": "USD/JPY",
+    "IX.D.ASX.MONTH1.IP": "AXJO",
+    "IX.D.DAX.DAILY.IP": "DAX",
+    "IX.D.DOW.DAILY.IP": "DJI",
+    "IX.D.FANG.DAILY.IP": "NYFANG",
+    "IX.D.FTSE.DAILY.IP": "FTSE",
+    "IX.D.NASDAQ.CASH.IP": "NDAQ",
+    "IX.D.NIKKEI.DAILY.IP": "N225",
+    "IX.D.SAF.DAILY.IP": "JTOPI",
+    "IX.D.STXE.CASH.IP": "STOXX50E",
+    "IX.D.XINHUA.DFB.IP": "XIN9",
+    "SA.D.ABBVWUS.DAILY.IP": "ABBV",
+    "SA.D.AMD.DAILY.IP": "AMD",
+    "SA.D.ANETUS.DAILY.IP": "ANET",
+    "SA.D.BA.DAILY.IP": "BA",
+    "SA.D.BABA.DAILY.IP": "BABA",
+    "SA.D.BAC.DAILY.IP": "BAC",
+    "SB.D.C.DAILY.IP": "C",
+    "SB.D.CAT.DAILY.IP": "CAT",
+    "SB.D.CRM.DAILY.IP": "CRM",
+    "SB.D.CVX.DAILY.IP": "CVX",
+    "SB.D.DE.DAILY.IP": "DE",
+    "SB.D.DIS.DAILY.IP": "DIS",
+    "SC.D.F.DAILY.IP": "F",
+    "SC.D.GE.DAILY.IP": "GE",
+    "SC.D.GMUS.DAILY.IP": "GM",
+    "SC.D.HD.DAILY.IP": "HD",
+    "SD.D.IBM.DAILY.IP": "IBM",
+    "SD.D.JNJ.DAILY.IP": "JNJ",
+    "SD.D.JPM.DAILY.IP": "JPM",
+    "SD.D.KO.DAILY.IP": "KO",
+    "SD.D.LLY.DAILY.IP": "LLY",
+    "SD.D.LOW.DAILY.IP": "LOW",
+    "SE.D.MCD.DAILY.IP": "MCD",
+    "SE.D.NETUS.DAILY.IP": "NET",
+    "SE.D.NIOUS.DAILY.IP": "NIO",
+    "SE.D.NOWUS.DAILY.IP": "NOW",
+    "SE.D.PEP.DAILY.IP": "PEP",
+    "SG.D.SHOPUS.DAILY.IP": "SHOP",
+    "SG.D.SNOWUS.DAILY.IP": "SNOW",
+    "SG.D.SPOTUS.DAILY.IP": "SPOT",
+    "SG.D.SQUS.DAILY.IP": "SQ",
+    "SH.D.UBERUS.DAILY.IP": "UBER",
+    "UA.D.AALUS.DAILY.IP": "AAL",
+    "UA.D.AAPL.DAILY.IP": "AAPL",
+    "UA.D.ABNBUS.DAILY.IP": "ABNB",
+    "UA.D.ADBE.DAILY.IP": "ADBE",
+    "UA.D.ADSK.DAILY.IP": "ADSK",
+    "UA.D.AMAT.DAILY.IP": "AMAT",
+    "UA.D.AMGN.DAILY.IP": "AMGN",
+    "UA.D.AMZN.DAILY.IP": "AMZN",
+    "UA.D.ARMUS.DAILY.IP": "ARM",
+    "UA.D.AVGO.DAILY.IP": "AVGO",
+    "UA.D.COINUS.DAILY.IP": "COIN",
+    "UA.D.COST.DAILY.IP": "COST",
+    "UA.D.CRWDUS.DAILY.IP": "CRWD",
+    "UA.D.CSCO.DAILY.IP": "CSCO",
+    "UB.D.DDOGUS.DAILY.IP": "DDOG",
+    "UB.D.DKNGUS.DAILY.IP": "DKNG",
+    "UB.D.DOCUUS.DAILY.IP": "DOCU",
+    "UB.D.FB.DAILY.IP": "META",
+    "UB.D.GOOGL.DAILY.IP": "GOOGL",
+    "UB.D.INTC.DAILY.IP": "INTC",
+    "UB.D.INTU.DAILY.IP": "INTU",
+    "UC.D.MARAUS.DAILY.IP": "MARA",
+    "UC.D.MARUS.DAILY.IP": "MAR",
+    "UC.D.MRVL.DAILY.IP": "MRVL",
+    "UC.D.MSFT.DAILY.IP": "MSFT",
+    "UC.D.MU.DAILY.IP": "MU",
+    "UC.D.NFLX.DAILY.IP": "NFLX",
+    "UC.D.NVDA.DAILY.IP": "NVDA",
+    "UC.D.PCLN.DAILY.IP": "BKNG",
+    "UC.D.ROKUUS.DAILY.IP": "ROKU",
+    "UD.D.ZSUS.DAILY.IP": "ZS"
+  },
+  "mapped_count": 85,
+  "total_input": 72,
+  "unmapped": {},
+  "unmapped_count": 0
+}

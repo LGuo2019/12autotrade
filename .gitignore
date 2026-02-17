@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+*.db
+data/bot.log
+data/bot.pid
+
+*.swp
+*.swo

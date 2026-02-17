@@ -1,0 +1,11 @@
+# Sample watchlist (replace with ~150 symbols)
+EUR/USD
+GBP/USD
+USD/JPY
+BTC/USD
+ETH/USD
+AAPL
+MSFT
+SPY
+TSLA
+NVDA

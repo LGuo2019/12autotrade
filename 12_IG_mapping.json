@@ -1,0 +1,23 @@
+{
+  "GBP/USD": "GBP/USD",
+  "NDAQ": "US Tech 100",
+  "DJI": "Wall Street",
+  "XIN9": "China A50",
+  "WTI": "Oil - US Crude",
+  "XAU/USD": "Spot Gold",
+  "XAG/USD": "Spot Silver",
+  "JTOPI": "South Africa 40",
+  "N225": "Japan 225",
+  "DAX": "Germany 40",
+  "AXJO": "Australia 200",
+  "STOXX50E": "EU Stocks 50",
+  "NYFANG": "US Fang",
+  "FTSE": "FTSE 100",
+  "NG": "Natural Gas",
+  "USD/JPY": "USD/JPY",
+  "EUR/USD": "EUR/USD",
+  "BRENT": "Oil - Brent Crude",
+  "HG": "High Grade Copper",
+  "COPPER": "Copper",
+  "NICKEL": "Nickel"
+}
