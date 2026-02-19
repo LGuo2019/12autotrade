@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import json
 import logging
+import re
+import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 import requests
@@ -21,6 +25,7 @@ class IGWatchlistSync:
     base_url: str
     watchlist_name: str
     account_id: str = ""
+    cache_file: str = "data/ig_watchlist_cache.json"
     dry_run: bool = False
 
     def __post_init__(self) -> None:
@@ -30,7 +35,10 @@ class IGWatchlistSync:
         self._xst = ""
         self._watchlist_id = ""
         self._watchlist_epics: set[str] = set()
+        self._symbol_epic_cache: dict[str, str] = {}
         self._initialized = False
+        self._cache_loaded = False
+        self._load_cache()
 
     def add_epic_if_missing(self, epic: str) -> None:
         if not epic:
@@ -52,40 +60,59 @@ class IGWatchlistSync:
         try:
             self._add_market_to_watchlist(self._watchlist_id, epic)
             self._watchlist_epics.add(epic)
+            self._save_cache()
             logger.info("ig_watchlist epic=%s action=added watchlist=%s", epic, self.watchlist_name)
         except Exception as exc:
             logger.error("ig_watchlist epic=%s action=add_failed error=%s", epic, str(exc))
+
+    def add_symbol_if_missing(self, symbol: str, display_name: str = "") -> None:
+        symbol_key = _symbol_key(symbol)
+        if not symbol_key:
+            return
+
+        try:
+            self._ensure_initialized()
+        except Exception as exc:
+            logger.error(
+                "ig_watchlist symbol=%s action=resolve_failed error=%s",
+                symbol_key,
+                str(exc),
+            )
+            return
+
+        epic = self._symbol_epic_cache.get(symbol_key, "")
+
+        if not epic:
+            logger.warning(
+                "ig_watchlist symbol=%s action=cache_miss display_name=%s hint=refresh_ig_watchlist_cache",
+                symbol_key,
+                display_name,
+            )
+            return
+
+        self._symbol_epic_cache[symbol_key] = epic
+        self._save_cache()
+        self.add_epic_if_missing(epic)
 
     def _ensure_initialized(self) -> None:
         if self._initialized:
             return
         self._login()
-        watchlists = self._get_watchlists()
-        self._watchlist_id = self._find_watchlist_id(watchlists, self.watchlist_name)
-        if not self._watchlist_id:
-            raise IGWatchlistError(f"watchlist_not_found name={self.watchlist_name}")
-        details = self._get_watchlist(self._watchlist_id)
-        self._watchlist_epics = {
-            str(m.get("epic") or "").strip()
-            for m in (details.get("markets") or [])
-            if str(m.get("epic") or "").strip()
-        }
-        self._initialized = True
-        logger.info(
-            "ig_watchlist init_ok watchlist=%s watchlist_id=%s markets=%d account_id=%s",
-            self.watchlist_name,
-            self._watchlist_id,
-            len(self._watchlist_epics),
-            self.account_id or "",
-        )
-        if len(self._watchlist_epics) == 0:
-            logger.warning(
-                "ig_watchlist watchlist_empty watchlist=%s watchlist_id=%s account_id=%s "
-                "hint=check_ig_account_id_or_duplicate_watchlist_name",
+        if self._cache_loaded and self._watchlist_id:
+            self._initialized = True
+            logger.info(
+                "ig_watchlist init_cached watchlist=%s watchlist_id=%s markets=%d account_id=%s",
                 self.watchlist_name,
                 self._watchlist_id,
+                len(self._watchlist_epics),
                 self.account_id or "",
             )
+            return
+        raise IGWatchlistError(
+            "cache_missing_or_invalid "
+            f"watchlist={self.watchlist_name} cache_file={self.cache_file} "
+            "hint=run_scripts/populate_ig_watchlist_cache.py"
+        )
 
     def _login(self) -> None:
         if self.dry_run:
@@ -192,6 +219,74 @@ class IGWatchlistSync:
         self._xst = ""
         self._login()
 
+    def _cache_identity(self) -> dict[str, str]:
+        return {
+            "base_url": self.base_url.rstrip("/").lower(),
+            "watchlist_name": _norm(self.watchlist_name),
+            "account_id": self.account_id.strip(),
+        }
+
+    def _load_cache(self) -> None:
+        cache_path = str(self.cache_file or "").strip()
+        if not cache_path:
+            return
+        p = Path(cache_path)
+        if not p.exists():
+            return
+        try:
+            payload = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            return
+        if not isinstance(payload, dict):
+            return
+        identity = payload.get("identity")
+        if not isinstance(identity, dict):
+            return
+        if identity != self._cache_identity():
+            return
+
+        watchlist_id = str(payload.get("watchlist_id") or "").strip()
+        if not watchlist_id:
+            return
+        raw_epics = payload.get("watchlist_epics") or []
+        if not isinstance(raw_epics, list):
+            raw_epics = []
+        raw_symbol_cache = payload.get("symbol_epic_cache") or {}
+        if not isinstance(raw_symbol_cache, dict):
+            raw_symbol_cache = {}
+
+        self._watchlist_id = watchlist_id
+        self._watchlist_epics = {str(x).strip() for x in raw_epics if str(x).strip()}
+        self._symbol_epic_cache = {
+            _symbol_key(k): str(v).strip()
+            for k, v in raw_symbol_cache.items()
+            if _symbol_key(k) and str(v).strip()
+        }
+        self._cache_loaded = True
+        logger.info(
+            "ig_watchlist cache_loaded watchlist=%s watchlist_id=%s markets=%d symbols=%d",
+            self.watchlist_name,
+            self._watchlist_id,
+            len(self._watchlist_epics),
+            len(self._symbol_epic_cache),
+        )
+
+    def _save_cache(self) -> None:
+        cache_path = str(self.cache_file or "").strip()
+        if not cache_path or not self._watchlist_id:
+            return
+        p = Path(cache_path)
+        if p.parent and str(p.parent) != ".":
+            p.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            "identity": self._cache_identity(),
+            "watchlist_id": self._watchlist_id,
+            "watchlist_epics": sorted(self._watchlist_epics),
+            "symbol_epic_cache": dict(sorted(self._symbol_epic_cache.items())),
+            "updated_at": int(time.time()),
+        }
+        p.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+
     @staticmethod
     def _is_auth_error(resp: requests.Response) -> bool:
         detail = _http_error_detail(resp).lower()
@@ -210,6 +305,13 @@ class IGWatchlistSync:
 
 def _norm(s: str) -> str:
     return "".join(ch.lower() for ch in s if ch.isalnum())
+
+
+def _symbol_key(symbol: str) -> str:
+    value = str(symbol).strip().upper()
+    if not value:
+        return ""
+    return re.sub(r"\s+", "", value)
 
 
 def _http_error_detail(resp: requests.Response) -> str:

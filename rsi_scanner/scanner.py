@@ -87,6 +87,21 @@ class Scanner:
     def _display_symbol(self, symbol: str) -> str:
         return self.symbol_display_map.get(symbol, symbol)
 
+    def _lookup_epic(self, symbol: str) -> str:
+        key = symbol.strip()
+        if not key:
+            return ""
+        upper = key.upper()
+        compact = upper.replace("/", "").replace(".", "").replace("-", "").replace(" ", "")
+        candidates = [key, upper, compact]
+        if ":" in upper:
+            candidates.append(upper.split(":", 1)[0])
+        for cand in candidates:
+            epic = self.symbol_to_epic_map.get(cand, "")
+            if epic:
+                return epic
+        return ""
+
     def run_once(self) -> ScanResult:
         now_ts = int(time.time())
         run_id = now_ts // SECONDS_PER_2H
@@ -231,9 +246,15 @@ class Scanner:
                     self.telegram.send_alert(alert)
                     alert_state.last_alert_ts = curr.ts
                     alerts += 1
-                    epic = self.symbol_to_epic_map.get(symbol, "")
-                    if self.ig_watchlist_sync and epic:
-                        self.ig_watchlist_sync.add_epic_if_missing(epic)
+                    epic = self._lookup_epic(symbol)
+                    if self.ig_watchlist_sync:
+                        if epic:
+                            self.ig_watchlist_sync.add_epic_if_missing(epic)
+                        else:
+                            self.ig_watchlist_sync.add_symbol_if_missing(
+                                symbol=symbol,
+                                display_name=self._display_symbol(symbol),
+                            )
                     logger.info(
                         "scan_symbol symbol=%s action=alert reason=%s state=%s rsi=%.2f",
                         d_symbol,

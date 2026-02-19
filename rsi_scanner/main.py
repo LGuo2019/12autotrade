@@ -18,6 +18,33 @@ from .telegram import TelegramClient, TelegramSendError
 from .twelvedata import TwelveDataClient
 
 
+def _symbol_aliases(symbol: str) -> list[str]:
+    base = str(symbol).strip()
+    if not base:
+        return []
+    upper = base.upper().replace(" ", "")
+    aliases = [base, upper]
+
+    if ":" in upper:
+        aliases.append(upper.split(":", 1)[0])
+    if "/" in upper:
+        aliases.append(upper.replace("/", ""))
+    if "." in upper:
+        aliases.append(upper.replace(".", ""))
+    if "-" in upper:
+        aliases.append(upper.replace("-", ""))
+
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for alias in aliases:
+        value = alias.strip()
+        if not value or value in seen:
+            continue
+        seen.add(value)
+        deduped.append(value)
+    return deduped
+
+
 def load_symbols(path: str) -> list[str]:
     symbols: list[str] = []
     with open(path, "r", encoding="utf-8") as f:
@@ -64,7 +91,8 @@ def load_symbol_to_epic_map(path: str) -> dict[str, str]:
         s = str(symbol).strip()
         if not e or not s:
             continue
-        out.setdefault(s, e)
+        for alias in _symbol_aliases(s):
+            out.setdefault(alias, e)
     return out
 
 
@@ -174,6 +202,7 @@ def run_once(args: argparse.Namespace) -> None:
                 base_url=cfg.ig_base_url,
                 watchlist_name=cfg.ig_watchlist_name,
                 account_id=cfg.ig_account_id,
+                cache_file=cfg.ig_watchlist_cache_file,
                 dry_run=cfg.dry_run,
             )
             logger.info(

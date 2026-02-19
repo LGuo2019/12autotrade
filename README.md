@@ -106,8 +106,14 @@ If you run without `--once`, the process waits for the next `HH:01 UTC` trigger 
 - Optional IG watchlist auto-add on alerts:
   - `scanner.ig_auto_add_watchlist_on_alert: true`
   - `scanner.ig_watchlist_name: "My Watchlist"`
+  - `scanner.ig_watchlist_cache_file: "data/ig_watchlist_cache.json"` (cache watchlist id/epics and symbol->epic resolution locally)
   - `scanner.ig_symbol_epic_map_file: rsi_universe_epic_to_twelvedata_symbol.json`
   - Requires `ig` credentials in `config.yaml` (or env vars via `*_env` keys).
+  - Runtime is cache-only for watchlist metadata/symbol matching. Build/refresh cache with:
+
+```bash
+python scripts/populate_ig_watchlist_cache.py --config config.yaml
+```
 - Cooldown is 3600 seconds per symbol.
 - SQLite state is stored in `rsi_scanner.db` in the working directory.
 

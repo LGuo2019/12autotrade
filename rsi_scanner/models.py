@@ -64,6 +64,7 @@ class Config:
     us_stock_symbols_file: str
     ig_auto_add_watchlist_on_alert: bool
     ig_watchlist_name: str
+    ig_watchlist_cache_file: str
     ig_symbol_epic_map_file: str
     ig_api_key_env: str
     ig_api_key: str

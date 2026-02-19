@@ -6,6 +6,7 @@ __pycache__/
 *.db
 data/bot.log
 data/bot.pid
+data/ig_watchlist_cache.json
 
 *.swp
 *.swo

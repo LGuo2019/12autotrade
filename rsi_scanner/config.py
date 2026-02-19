@@ -45,6 +45,7 @@ def load_config(path: str) -> Config:
         us_stock_symbols_file=str(scanner.get("us_stock_symbols_file", "data/us_stock_symbols.txt")),
         ig_auto_add_watchlist_on_alert=bool(scanner.get("ig_auto_add_watchlist_on_alert", False)),
         ig_watchlist_name=str(scanner.get("ig_watchlist_name", "My Watchlist")),
+        ig_watchlist_cache_file=str(scanner.get("ig_watchlist_cache_file", "data/ig_watchlist_cache.json")),
         ig_symbol_epic_map_file=str(scanner.get("ig_symbol_epic_map_file", "rsi_universe_epic_to_twelvedata_symbol.json")),
         ig_api_key_env=str(ig.get("api_key_env", "IG_API_KEY")),
         ig_api_key=str(ig.get("api_key", "")),
