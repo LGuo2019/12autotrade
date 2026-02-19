@@ -30,7 +30,7 @@ ig:
 scanner:
   timeframe: 2h
   active_band: 6
-  max_calls_per_run: 80
+  max_calls_per_run: 63
   sticky_runs: 2
   alert_on_first_seen_extreme: true
   us_stocks_restrict_hours: true
