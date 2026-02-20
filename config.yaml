@@ -39,7 +39,7 @@ scanner:
   us_stocks_end: "18:00"
   us_stock_symbols_file: data/us_stock_symbols.txt
   ig_auto_add_watchlist_on_alert: true
-  ig_watchlist_name: "24 Hours Shares"
+  ig_watchlist_name: "My Watchlist"
   ig_watchlist_cache_file: data/ig_watchlist_cache.json
   ig_symbol_epic_map_file: rsi_universe_epic_to_twelvedata_symbol.json
 

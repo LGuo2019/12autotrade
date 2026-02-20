@@ -424,6 +424,81 @@
       "ig_name": "NVIDIA Corp",
       "symbol": "NVDA",
       "via": "ig_markets_search"
+    },
+    "SE.D.PANWUS.DAILY.IP": {
+      "ig_name": "Palo Alto Networks Inc",
+      "symbol": "PANW",
+      "via": "ig_markets_search"
+    },
+    "SE.D.PFE.DAILY.IP": {
+      "ig_name": "Pfizer Inc",
+      "symbol": "PFE",
+      "via": "ig_markets_search"
+    },
+    "SE.D.PLTRUS.DAILY.IP": {
+      "ig_name": "Palantir Technologies Inc",
+      "symbol": "PLTR",
+      "via": "ig_markets_search"
+    },
+    "UC.D.PLUGUS.DAILY.IP": {
+      "ig_name": "Plug Power Inc",
+      "symbol": "PLUG",
+      "via": "ig_markets_search"
+    },
+    "UC.D.QCOM.DAILY.IP": {
+      "ig_name": "Qualcomm Inc",
+      "symbol": "QCOM",
+      "via": "ig_markets_search"
+    },
+    "SG.D.RIG.DAILY.IP": {
+      "ig_name": "Transocean Ltd",
+      "symbol": "RIG",
+      "via": "ig_markets_search"
+    },
+    "UC.D.RIVNUS.DAILY.IP": {
+      "ig_name": "Rivian Automotive Inc",
+      "symbol": "RIVN",
+      "via": "ig_markets_search"
+    },
+    "UD.D.SMCIUS.DAILY.IP": {
+      "ig_name": "Super Micro Computer Inc",
+      "symbol": "SMCI",
+      "via": "ig_markets_search"
+    },
+    "SG.D.T.DAILY.IP": {
+      "ig_name": "AT&T Inc",
+      "symbol": "T",
+      "via": "ig_markets_search"
+    },
+    "UD.D.TSLA.DAILY.IP": {
+      "ig_name": "Tesla Inc",
+      "symbol": "TSLA",
+      "via": "ig_markets_search"
+    },
+    "SH.D.UNH.DAILY.IP": {
+      "ig_name": "UnitedHealth Group Inc",
+      "symbol": "UNH",
+      "via": "ig_markets_search"
+    },
+    "SH.D.VZ.DAILY.IP": {
+      "ig_name": "Verizon Communications Inc",
+      "symbol": "VZ",
+      "via": "ig_markets_search"
+    },
+    "SH.D.WFC.DAILY.IP": {
+      "ig_name": "Wells Fargo & Co",
+      "symbol": "WFC",
+      "via": "ig_markets_search"
+    },
+    "SH.D.WMT.DAILY.IP": {
+      "ig_name": "Walmart Inc",
+      "symbol": "WMT",
+      "via": "ig_markets_search"
+    },
+    "SH.D.XOM.DAILY.IP": {
+      "ig_name": "Exxon Mobil Corp",
+      "symbol": "XOM",
+      "via": "ig_markets_search"
     }
   },
   "epic_to_twelvedata_symbol": {
@@ -475,12 +550,22 @@
     "SE.D.NETUS.DAILY.IP": "NET",
     "SE.D.NIOUS.DAILY.IP": "NIO",
     "SE.D.NOWUS.DAILY.IP": "NOW",
+    "SE.D.PANWUS.DAILY.IP": "PANW",
     "SE.D.PEP.DAILY.IP": "PEP",
+    "SE.D.PFE.DAILY.IP": "PFE",
+    "SE.D.PLTRUS.DAILY.IP": "PLTR",
+    "SG.D.RIG.DAILY.IP": "RIG",
     "SG.D.SHOPUS.DAILY.IP": "SHOP",
     "SG.D.SNOWUS.DAILY.IP": "SNOW",
     "SG.D.SPOTUS.DAILY.IP": "SPOT",
     "SG.D.SQUS.DAILY.IP": "SQ",
+    "SG.D.T.DAILY.IP": "T",
     "SH.D.UBERUS.DAILY.IP": "UBER",
+    "SH.D.UNH.DAILY.IP": "UNH",
+    "SH.D.VZ.DAILY.IP": "VZ",
+    "SH.D.WFC.DAILY.IP": "WFC",
+    "SH.D.WMT.DAILY.IP": "WMT",
+    "SH.D.XOM.DAILY.IP": "XOM",
     "UA.D.AALUS.DAILY.IP": "AAL",
     "UA.D.AAPL.DAILY.IP": "AAPL",
     "UA.D.ABNBUS.DAILY.IP": "ABNB",
@@ -510,10 +595,15 @@
     "UC.D.NFLX.DAILY.IP": "NFLX",
     "UC.D.NVDA.DAILY.IP": "NVDA",
     "UC.D.PCLN.DAILY.IP": "BKNG",
+    "UC.D.PLUGUS.DAILY.IP": "PLUG",
+    "UC.D.QCOM.DAILY.IP": "QCOM",
+    "UC.D.RIVNUS.DAILY.IP": "RIVN",
     "UC.D.ROKUUS.DAILY.IP": "ROKU",
+    "UD.D.SMCIUS.DAILY.IP": "SMCI",
+    "UD.D.TSLA.DAILY.IP": "TSLA",
     "UD.D.ZSUS.DAILY.IP": "ZS"
   },
-  "mapped_count": 85,
+  "mapped_count": 100,
   "total_input": 72,
   "unmapped": {},
   "unmapped_count": 0

@@ -82,18 +82,26 @@ def _clean_match_text(value: str) -> str:
     return text
 
 
-def _score_market_candidate(display_name: str, candidate_name: str, row: dict[str, Any]) -> float:
+def _score_market_candidate(symbol: str, display_name: str, candidate_name: str, row: dict[str, Any]) -> float:
     name_l = _clean_match_text(candidate_name)
     display_l = _clean_match_text(display_name)
-    if not display_l or not name_l:
+    symbol_u = str(symbol or "").strip().upper()
+    epic = str(
+        row.get("epic")
+        or (row.get("instrument", {}) if isinstance(row.get("instrument"), dict) else {}).get("epic")
+        or ""
+    ).strip().upper()
+    if not display_l and not symbol_u:
         return 0.0
 
     score = 0.0
 
-    if display_l == name_l:
-        score += 0.80
-    elif display_l in name_l or name_l in display_l:
-        score += 0.65
+    # Strong signal: ticker embedded in IG epic (e.g. ... .VZ. ...).
+    if symbol_u and epic:
+        if f".{symbol_u}." in epic:
+            score += 0.75
+        elif symbol_u in epic:
+            score += 0.45
 
     market = row.get("market", {}) if isinstance(row.get("market"), dict) else {}
     instrument = row.get("instrument", {}) if isinstance(row.get("instrument"), dict) else {}
@@ -110,7 +118,12 @@ def _score_market_candidate(display_name: str, candidate_name: str, row: dict[st
     if any(token in type_text for token in ("SHARE", "EQUITY", "STOCK")):
         score += 0.10
 
-    score += 0.35 * SequenceMatcher(None, display_l, name_l).ratio()
+    if display_l and name_l:
+        if display_l == name_l:
+            score += 0.80
+        elif display_l in name_l or name_l in display_l:
+            score += 0.65
+        score += 0.35 * SequenceMatcher(None, display_l, name_l).ratio()
 
     return max(0.0, min(score, 1.0))
 
@@ -133,7 +146,8 @@ class IGClient:
 
     def login(self) -> None:
         errors: list[str] = []
-        for version in ("3", "2"):
+        # Match AutoTrade behavior first: v2 session tokens + IG-ACCOUNT-ID context.
+        for version in ("2", "3"):
             headers = {
                 "X-IG-API-KEY": self.api_key,
                 "Content-Type": "application/json; charset=UTF-8",
@@ -145,21 +159,26 @@ class IGClient:
             if resp.status_code >= 400:
                 errors.append(f"v{version}:{resp.status_code}:{_http_error_detail(resp)}")
                 continue
+            if version == "2":
+                self.cst = resp.headers.get("CST", "")
+                self.xst = resp.headers.get("X-SECURITY-TOKEN", "")
+                if self.cst and self.xst:
+                    return
+                errors.append("v2:missing_session_tokens")
+                continue
+
             body = resp.json() if resp.content else {}
-            if version == "3":
-                oauth = body.get("oauthToken", {}) if isinstance(body, dict) else {}
-                token = str(oauth.get("access_token", "")).strip()
-                account_id = str(body.get("currentAccountId", "")).strip()
-                if token:
-                    self.oauth_access_token = token
+            oauth = body.get("oauthToken", {}) if isinstance(body, dict) else {}
+            token = str(oauth.get("access_token", "")).strip()
+            if token:
+                self.oauth_access_token = token
+                # Keep configured account context if provided; only fallback to currentAccountId when empty.
+                if not self.oauth_account_id:
+                    account_id = str(body.get("currentAccountId", "")).strip()
                     if account_id:
                         self.oauth_account_id = account_id
-                    return
-            self.cst = resp.headers.get("CST", "")
-            self.xst = resp.headers.get("X-SECURITY-TOKEN", "")
-            if self.cst and self.xst:
                 return
-            errors.append(f"v{version}:missing_tokens")
+            errors.append("v3:missing_oauth_token")
         raise RuntimeError("IG login failed: " + " | ".join(errors))
 
     def _headers(self, version: str = "1") -> dict[str, str]:
@@ -197,6 +216,42 @@ class IGClient:
             raise RuntimeError(f"IG get_watchlist failed: {resp.status_code} {_http_error_detail(resp)}")
         return resp.json()
 
+    def fetch_accounts(self) -> list[dict[str, Any]]:
+        resp = self.session.get(f"{self.base_url}/accounts", headers=self._headers("1"), timeout=30)
+        if resp.status_code >= 400:
+            raise RuntimeError(f"IG fetch_accounts failed: {resp.status_code} {_http_error_detail(resp)}")
+        payload = resp.json()
+        rows = payload.get("accounts")
+        return rows if isinstance(rows, list) else []
+
+    def switch_account(self, account_id: str) -> None:
+        if not account_id:
+            return
+        payload = {"accountId": account_id, "defaultAccount": False}
+        resp = self.session.put(f"{self.base_url}/session", headers=self._headers("1"), json=payload, timeout=30)
+        if resp.status_code >= 400:
+            raise RuntimeError(f"IG switch_account failed: {resp.status_code} {_http_error_detail(resp)}")
+        self.oauth_account_id = account_id
+
+    def fetch_root_navigation(self) -> dict[str, Any]:
+        return self._fetch_navigation(None)
+
+    def fetch_navigation_node(self, node_id: str) -> dict[str, Any]:
+        return self._fetch_navigation(node_id)
+
+    def _fetch_navigation(self, node_id: str | None) -> dict[str, Any]:
+        paths = ["/market-navigation", "/marketnavigation"] if node_id is None else [
+            f"/market-navigation/{quote(str(node_id))}",
+            f"/marketnavigation/{quote(str(node_id))}",
+        ]
+        last_error = ""
+        for p in paths:
+            resp = self.session.get(f"{self.base_url}{p}", headers=self._headers("1"), timeout=30)
+            if resp.status_code < 400:
+                return resp.json()
+            last_error = f"{resp.status_code} {_http_error_detail(resp)}"
+        raise RuntimeError(f"IG navigation fetch failed: {last_error}")
+
     def search_markets(self, term: str) -> list[dict[str, Any]]:
         if not term:
             return []
@@ -216,20 +271,90 @@ class IGClient:
         return out
 
 
-def _find_watchlist_id(watchlists: list[dict[str, Any]], watchlist_name: str) -> str:
+def _find_watchlist_entry(watchlists: list[dict[str, Any]], watchlist_name: str) -> dict[str, Any] | None:
     wanted = _norm_watchlist_name(watchlist_name)
     for w in watchlists:
         name = str(w.get("name") or w.get("watchlistName") or "").strip()
-        wid = str(w.get("id") or w.get("watchlistId") or "").strip()
-        if wid and _norm_watchlist_name(name) == wanted:
-            return wid
+        if _norm_watchlist_name(name) == wanted:
+            return w
     for w in watchlists:
         name = str(w.get("name") or w.get("watchlistName") or "").strip()
-        wid = str(w.get("id") or w.get("watchlistId") or "").strip()
         n = _norm_watchlist_name(name)
-        if wid and (wanted in n or n in wanted):
-            return wid
-    return ""
+        if wanted in n or n in wanted:
+            return w
+    return None
+
+
+def _recover_watchlist_markets_across_accounts(
+    ig: IGClient,
+    watchlist_name: str,
+) -> tuple[str, list[dict[str, Any]]] | None:
+    target = _norm_watchlist_name(watchlist_name)
+    try:
+        accounts = ig.fetch_accounts()
+    except Exception:
+        return None
+
+    for acc in accounts:
+        account_id = str(acc.get("accountId") or "").strip()
+        if not account_id:
+            continue
+        try:
+            ig.switch_account(account_id)
+            watchlists = ig.get_watchlists()
+            wid = _find_watchlist_id(watchlists, watchlist_name)
+            if not wid:
+                continue
+            details = ig.get_watchlist(wid)
+            markets = details.get("markets") or []
+            if isinstance(markets, list) and markets:
+                return wid, markets
+        except Exception:
+            continue
+    return None
+
+
+def _recover_watchlist_markets_navigation(
+    ig: IGClient,
+    watchlist_name: str,
+) -> list[dict[str, Any]]:
+    wanted = _norm_watchlist_name(watchlist_name)
+    try:
+        root = ig.fetch_root_navigation()
+    except Exception:
+        return []
+    queue: list[tuple[str, str]] = []
+    for node in root.get("nodes", []):
+        if not isinstance(node, dict):
+            continue
+        nid = str(node.get("id") or "").strip()
+        nname = str(node.get("name") or "").strip()
+        if nid:
+            queue.append((nid, nname))
+
+    seen: set[str] = set()
+    while queue:
+        node_id, node_name = queue.pop(0)
+        if node_id in seen:
+            continue
+        seen.add(node_id)
+        norm = _norm_watchlist_name(node_name)
+        try:
+            payload = ig.fetch_navigation_node(node_id)
+        except Exception:
+            continue
+        if norm == wanted or wanted in norm or norm in wanted:
+            markets = payload.get("markets") or []
+            if isinstance(markets, list) and markets:
+                return [m for m in markets if isinstance(m, dict)]
+        for child in payload.get("nodes", []):
+            if not isinstance(child, dict):
+                continue
+            cid = str(child.get("id") or "").strip()
+            cname = str(child.get("name") or "").strip()
+            if cid and cid not in seen:
+                queue.append((cid, cname))
+    return []
 
 
 def _lookup_epic(symbol: str, symbol_to_epic_map: dict[str, str]) -> str:
@@ -265,7 +390,7 @@ def _resolve_symbol_epic(
         epic, name = _extract_epic_and_name(row)
         if not epic:
             continue
-        score = _score_market_candidate(display_name, name, row)
+        score = _score_market_candidate(symbol, display_name, name, row)
         if score > best_score:
             best_epic = epic
             best_score = score
@@ -306,7 +431,7 @@ def _resolve_symbol_epic(
             if not epic or epic in seen_epics:
                 continue
             seen_epics.add(epic)
-            score = _score_market_candidate(display_name, name, row)
+            score = _score_market_candidate(symbol, display_name, name, row)
             if score > best_score:
                 best_epic = epic
                 best_score = score
@@ -363,8 +488,8 @@ def main() -> None:
     ig.login()
 
     watchlists = ig.get_watchlists()
-    watchlist_id = _find_watchlist_id(watchlists, watchlist_name)
-    if not watchlist_id:
+    watchlist_entry = _find_watchlist_entry(watchlists, watchlist_name)
+    if not watchlist_entry:
         available = sorted(
             {
                 str(w.get("name") or w.get("watchlistName") or "").strip()
@@ -373,14 +498,58 @@ def main() -> None:
             }
         )
         raise SystemExit(f"Watchlist not found: {watchlist_name}. Available: {available}")
+    name_fields = [
+        str(watchlist_entry.get("id") or "").strip(),
+        str(watchlist_entry.get("watchlistId") or "").strip(),
+        str(watchlist_entry.get("name") or "").strip(),
+        str(watchlist_entry.get("watchlistName") or "").strip(),
+    ]
+    candidate_ids: list[str] = []
+    for cid in name_fields:
+        if cid and cid not in candidate_ids:
+            candidate_ids.append(cid)
 
-    details = ig.get_watchlist(watchlist_id)
-    watchlist_markets = [m for m in (details.get("markets") or []) if isinstance(m, dict)]
+    watchlist_id = candidate_ids[0] if candidate_ids else ""
+    watchlist_markets: list[dict[str, Any]] = []
+    for cid in candidate_ids:
+        try:
+            details = ig.get_watchlist(cid)
+            rows = [m for m in (details.get("markets") or []) if isinstance(m, dict)]
+            if rows:
+                watchlist_id = cid
+                watchlist_markets = rows
+                break
+            if not watchlist_markets:
+                watchlist_id = cid
+        except Exception:
+            continue
+
     watchlist_epics = {
         str(m.get("epic") or "").strip()
         for m in watchlist_markets
         if str(m.get("epic") or "").strip()
     }
+    if not watchlist_markets:
+        print(
+            "WARNING watchlist_markets_empty "
+            f"watchlist_name={watchlist_name!r} watchlist_id={watchlist_id!r} "
+            "source=IG /watchlists/{id} returned 0 markets"
+        )
+        recovered = _recover_watchlist_markets_across_accounts(ig, watchlist_name)
+        if recovered:
+            watchlist_id, watchlist_markets = recovered
+            print(
+                "RECOVERED watchlist_markets "
+                f"source=cross_account watchlist_id={watchlist_id!r} markets={len(watchlist_markets)}"
+            )
+        else:
+            nav_rows = _recover_watchlist_markets_navigation(ig, watchlist_name)
+            if nav_rows:
+                watchlist_markets = nav_rows
+                print(
+                    "RECOVERED watchlist_markets "
+                    f"source=navigation markets={len(watchlist_markets)}"
+                )
 
     symbol_epic_cache: dict[str, str] = {}
     resolved_by_static = 0

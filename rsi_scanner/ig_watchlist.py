@@ -108,10 +108,46 @@ class IGWatchlistSync:
                 self.account_id or "",
             )
             return
-        raise IGWatchlistError(
-            "cache_missing_or_invalid "
-            f"watchlist={self.watchlist_name} cache_file={self.cache_file} "
-            "hint=run_scripts/populate_ig_watchlist_cache.py"
+        # Fallback to live API discovery so add-to-watchlist works immediately
+        # even when cache file does not exist.
+        watchlists = self._get_watchlists()
+        watchlist_id = self._find_watchlist_id(watchlists, self.watchlist_name)
+        if not watchlist_id:
+            raise IGWatchlistError(
+                f"watchlist_not_found name={self.watchlist_name} account_id={self.account_id or '<empty>'}"
+            )
+
+        details = self._get_watchlist(watchlist_id)
+        markets = details.get("markets") or []
+        if not isinstance(markets, list):
+            markets = []
+
+        epics: set[str] = set()
+        symbol_cache: dict[str, str] = {}
+        for row in markets:
+            if not isinstance(row, dict):
+                continue
+            epic = str(row.get("epic") or "").strip()
+            if epic:
+                epics.add(epic)
+            # Populate symbol cache opportunistically from watchlist market names.
+            mname = str(row.get("instrumentName") or row.get("marketName") or "").strip()
+            if mname and epic:
+                symbol_cache[_symbol_key(mname)] = epic
+
+        self._watchlist_id = watchlist_id
+        self._watchlist_epics = epics
+        if symbol_cache:
+            self._symbol_epic_cache.update(symbol_cache)
+        self._initialized = True
+        self._cache_loaded = True
+        self._save_cache()
+        logger.info(
+            "ig_watchlist init_live watchlist=%s watchlist_id=%s markets=%d account_id=%s",
+            self.watchlist_name,
+            self._watchlist_id,
+            len(self._watchlist_epics),
+            self.account_id or "",
         )
 
     def _login(self) -> None:
