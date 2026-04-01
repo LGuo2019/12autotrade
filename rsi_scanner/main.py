@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import atexit
 import json
 import logging
+import os
 from pathlib import Path
+import signal
 import sys
+import time
 
 from .budget import CreditBudget
 from .config import load_config, resolve_secret
@@ -16,6 +20,45 @@ from .sim import SimClient, SimDataSource, SimJSONSource
 from .storage import Storage
 from .telegram import TelegramClient, TelegramSendError
 from .twelvedata import TwelveDataClient
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+STATE_FILE = DATA_DIR / "bot.state.json"
+
+
+def _write_runtime_state(state: str, **extra: object) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    payload: dict[str, object] = {
+        "state": state,
+        "pid": os.getpid(),
+        "updated_at": int(time.time()),
+    }
+    payload.update(extra)
+    STATE_FILE.write_text(json.dumps(payload, sort_keys=True), encoding="utf-8")
+
+
+def _register_process_logging() -> None:
+    logger = logging.getLogger("rsi_scanner")
+
+    def _on_exit() -> None:
+        _write_runtime_state("stopped", exit_reason="atexit")
+        logger.info("process_atexit pid=%d", os.getpid())
+
+    atexit.register(_on_exit)
+
+    def _handle_signal(signum: int, _frame: object) -> None:
+        try:
+            signame = signal.Signals(signum).name
+        except ValueError:
+            signame = str(signum)
+        _write_runtime_state("stopping", signal=signame)
+        logger.warning("process_signal pid=%d signal=%s", os.getpid(), signame)
+        raise SystemExit(128 + int(signum))
+
+    for sig_name in ("SIGINT", "SIGTERM", "SIGBREAK"):
+        sig = getattr(signal, sig_name, None)
+        if sig is not None:
+            signal.signal(sig, _handle_signal)
 
 
 def _symbol_aliases(symbol: str) -> list[str]:
@@ -127,6 +170,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
 def run_once(args: argparse.Namespace) -> None:
     setup_logging(level=args.log_level, json_logs=args.json_logs)
     logger = logging.getLogger("rsi_scanner")
+    _write_runtime_state("scan_starting")
 
     cfg = load_config(args.config)
     if args.dry_run:
@@ -244,6 +288,14 @@ def run_once(args: argparse.Namespace) -> None:
         cfg.sticky_runs,
     )
     result = scanner.run_once()
+    _write_runtime_state(
+        "scan_complete",
+        planned=result.planned,
+        scanned=result.scanned,
+        alerts=result.alerts,
+        no_data=result.no_data,
+        budget_halted=result.budget_halted,
+    )
     logger.info(
         "scan_complete planned=%d scanned=%d alerts=%d skipped=%d no_data=%d window_skipped=%d budget_halted=%s",
         result.planned,
@@ -276,19 +328,40 @@ def main() -> None:
     args = build_arg_parser().parse_args()
     setup_logging(level=args.log_level, json_logs=args.json_logs)
     logger = logging.getLogger("rsi_scanner")
+    _register_process_logging()
+    _write_runtime_state("starting", argv=sys.argv[1:])
+    logger.info("process_start pid=%d argv=%s", os.getpid(), sys.argv[1:])
     if args.once:
         run_once(args)
         return
 
     logger.info("service_start once=false dry_run_flag=%s", str(args.dry_run).lower())
     def task() -> None:
+        _write_runtime_state("scan_running")
+        logger.info("scheduler_task_begin pid=%d", os.getpid())
         run_once(args)
+        _write_runtime_state("scan_idle")
+        logger.info("scheduler_task_end pid=%d", os.getpid())
 
-    run_every_2h(task)
+    def on_wait(state: str, target: object, wait_seconds: int) -> None:
+        run_at = target.strftime("%Y-%m-%d %H:%M:%S") if hasattr(target, "strftime") else str(target)
+        _write_runtime_state("waiting", next_run_utc=run_at, wait_seconds=wait_seconds)
+
+    run_every_2h(task, on_wait=on_wait)
 
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        _write_runtime_state("stopped", exit_reason="keyboard_interrupt")
+        logging.getLogger("rsi_scanner").warning("process_keyboard_interrupt pid=%d", os.getpid())
         sys.exit(0)
+    except SystemExit as exc:
+        _write_runtime_state("stopped", exit_reason="system_exit", code=exc.code)
+        logging.getLogger("rsi_scanner").warning("process_system_exit pid=%d code=%s", os.getpid(), exc.code)
+        raise
+    except Exception:
+        _write_runtime_state("stopped", exit_reason="unhandled_exception")
+        logging.getLogger("rsi_scanner").exception("process_unhandled_exception pid=%d", os.getpid())
+        raise

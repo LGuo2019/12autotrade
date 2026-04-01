@@ -76,14 +76,20 @@ class TelegramClient:
         url = f"https://api.telegram.org/bot{self.token}/sendMessage"
         payload = {"chat_id": self.chat_id, "text": message}
 
-        resp = self._session.post(url, json=payload, timeout=15)
+        try:
+            resp = self._session.post(url, json=payload, timeout=15)
+        except requests.RequestException as exc:
+            raise TelegramSendError(f"telegram_send_failed request_error={exc}") from exc
         if resp.status_code == 429:
             try:
                 retry_after = int(resp.json().get("parameters", {}).get("retry_after", 1))
             except ValueError:
                 retry_after = 1
             time.sleep(retry_after)
-            resp = self._session.post(url, json=payload, timeout=15)
+            try:
+                resp = self._session.post(url, json=payload, timeout=15)
+            except requests.RequestException as exc:
+                raise TelegramSendError(f"telegram_send_failed request_error={exc}") from exc
 
         if resp.status_code >= 400:
             detail = _telegram_error_detail(resp)

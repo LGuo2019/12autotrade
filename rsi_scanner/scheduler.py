@@ -8,6 +8,7 @@ from typing import Callable
 from .constants import SECONDS_PER_2H
 
 logger = logging.getLogger("rsi_scanner.scheduler")
+StateCallback = Callable[[str, datetime, int], None]
 
 
 def next_run_at(now: datetime) -> datetime:
@@ -32,19 +33,23 @@ def latest_run_at(now: datetime) -> datetime:
     return base - timedelta(hours=2)
 
 
-def sleep_until(target: datetime) -> None:
-    now = datetime.now(timezone.utc)
-    delay = max(0, (target - now).total_seconds())
-    if delay:
+def sleep_until(target: datetime, on_wait: StateCallback | None = None) -> None:
+    while True:
+        now = datetime.now(timezone.utc)
+        delay = max(0, int((target - now).total_seconds()))
+        if delay <= 0:
+            return
+        if on_wait is not None:
+            on_wait("waiting", target, delay)
         logger.info(
             "scheduler_waiting next_run_utc=%s wait_seconds=%d",
             target.strftime("%Y-%m-%d %H:%M:%S"),
-            int(delay),
+            delay,
         )
-        time.sleep(delay)
+        time.sleep(min(delay, 30))
 
 
-def run_every_2h(task: Callable[[], None]) -> None:
+def run_every_2h(task: Callable[[], None], on_wait: StateCallback | None = None) -> None:
     logger.info("scheduler_started cadence=2h trigger_minute=01 timezone=UTC")
     last_run: datetime | None = None
     while True:
@@ -72,7 +77,7 @@ def run_every_2h(task: Callable[[], None]) -> None:
                 continue
 
         run_at = next_run_at(now if last_run is None else max(now, last_run))
-        sleep_until(run_at)
+        sleep_until(run_at, on_wait=on_wait)
         logger.info("scheduler_trigger run_at_utc=%s", run_at.strftime("%Y-%m-%d %H:%M:%S"))
         try:
             task()
